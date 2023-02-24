@@ -1,0 +1,85 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h2 style="color: aliceblue;"> Angular StudentDB Crud</h2>
+        <div class="d-flex">
+            <!-- This button triggers bootstrap modal-->
+            <button type="button" (click)="onClickAdd()" button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addStudModal"> Add Student Record </button>
+        </div>
+    </div>
+</nav>
+
+<table class="table mt-3" > <!-- Bootstrap table class, top margin(mt) = 3-->
+    <thead> 
+        <tr> 
+            <th scope="col"> Student Id</th>
+            <th scope="col"> Full Name </th>
+            <th scope="col"> Email Id</th>
+            <th scope="col"> Mobile Number</th>
+            <th scope="col"> Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of studData">
+          <td>{{row.id}}</td>
+          <td>{{row.fullName}}</td>
+          <td>{{row.email}}</td>
+          <td>{{row.phoneNo}}</td>
+          <td>
+            <button type="button" (click)="onClickEdit(row)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addStudModal"> Edit </button>
+            <button (click)="deleteStudent(row)" class="btn btn-danger mx-2"> Delete</button>
+          </td>
+        </tr>
+    </tbody>
+</table>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addStudModal" tabindex="-1" aria-labelledby="addStudModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addStudModalLabel">Enter Student Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup] = "formValue">
+            <div class="mb-3">
+              <label for="inputNameForm" class="form-label">Full Name</label>
+              <input type="text" formControlName="fullName" class="form-control" id="inputNameForm" aria-describedby="privacyHelp">
+              <div id="privacyHelp"  class="form-text">We'll never share personal details with anyone else</div>
+            </div>
+            <div class="mb-3">
+              <label for="inputEmailForm" class="form-label">Email</label>
+              <input type="email" formControlName="email" class="form-control" id="inputEmailForm" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="inputPhoneForm" class="form-label">Phone Number</label>
+              <input type="text" formControlName="phoneNo" class="form-control" id="inputPhoneForm" pattern="[+][0-9]{3}-[0-9]{2}-[0-9]{3}" required ria-describedby="privacyHelp">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf="showAddBtn" (click)="postStudentDetails()" class="btn btn-primary">Add Student</button>
+          <button type="button" *ngIf="showUpdBtn" (click)="updateStudentDetails()" class="btn btn-primary">Update Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mock data for table row -->
+  <!-- 
+    <tr> 
+      <td><input type="checkbox" /></td>
+      <td> 1</td>
+      <td> Mrudul Jain</td>
+      <td> mrudul.jain@nielseniq.com</td>
+      <td> 9876543210</td>
+      <td>
+          <button class="btn btn-info"> Edit </button>
+          <button class="btn btn-danger mx-2"> Delete</button>
+      </td>
+  </tr>
+-->
+
