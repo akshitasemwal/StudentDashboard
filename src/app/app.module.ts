@@ -6,16 +6,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StudentDBComponent } from './student-db/student-db.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentDBComponent
+    StudentDBComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

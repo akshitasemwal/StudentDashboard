@@ -2,7 +2,9 @@ import { group } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ApiService } from '../shared/api.service';
-import { student } from '../student-db/student-db.student'; 
+import { student } from '../student-db/student-db.student';
+import { RouterModule, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-db',
@@ -17,23 +19,21 @@ export class StudentDBComponent implements OnInit {
   showAddBtn !: boolean
   showUpdBtn !: boolean
 
-  constructor(private formbuilder: FormBuilder, private api:ApiService) { }
+  constructor(private formbuilder: FormBuilder, private api:ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
-      fullName : [""], 
-      email : ["",], 
-      phoneNo : [0], 
+      fullName : [""],
+      email : ["",],
+      phoneNo : [0],
     })
 
     //should run when application starts to get all details from json-server
-    this.getStudentDetails(); 
+    this.getStudentDetails();
   }
 
   onClickAdd() {
-    this.formValue.reset();
-    this.showAddBtn = true;
-    this.showUpdBtn = false;
+    this.router.navigateByUrl('/edit-form');
   }
 
   postStudentDetails() {
@@ -46,13 +46,13 @@ export class StudentDBComponent implements OnInit {
       alert("Student details added");  // on success res (response) generate alert
       this.formValue.reset();
       this.getStudentDetails(); //if new record is posted, get the new record and display it
-    }, 
+    },
     err => {
       alert("Something went wrong");
     })
 
-    
-    this.getStudentDetails(); 
+
+    this.getStudentDetails();
   }
 
   getStudentDetails() {
@@ -64,9 +64,9 @@ export class StudentDBComponent implements OnInit {
   deleteStudent(row:any) {
     this.api.deleteStudent(row.id).subscribe(res => {
       alert("Student deleted");
-      this.getStudentDetails(); 
+      this.getStudentDetails();
       //every time a student is deleted, get changed student list from json server
-    },  
+    },
     err => {
       alert("Something went wrong");
     })
@@ -94,7 +94,7 @@ export class StudentDBComponent implements OnInit {
       alert("Student details updated");  // on success res (response) generate alert
       this.formValue.reset();
       this.getStudentDetails();
-    }, 
+    },
     err => {
       alert("Something went wrong");
     })

@@ -3,14 +3,14 @@
         <h2 style="color: aliceblue;"> Angular StudentDB Crud</h2>
         <div class="d-flex">
             <!-- This button triggers bootstrap modal-->
-            <button type="button" (click)="onClickAdd()" button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addStudModal"> Add Student Record </button>
+            <button type="button" (click)="onClickAdd()" button class="btn btn-success"> Add Student Record </button>
         </div>
     </div>
 </nav>
 
 <table class="table mt-3" > <!-- Bootstrap table class, top margin(mt) = 3-->
-    <thead> 
-        <tr> 
+    <thead>
+        <tr>
             <th scope="col"> Student Id</th>
             <th scope="col"> Full Name </th>
             <th scope="col"> Email Id</th>
@@ -32,13 +32,13 @@
     </tbody>
 </table>
 
-  
+
   <!-- Modal -->
   <div class="modal fade" id="addStudModal" tabindex="-1" aria-labelledby="addStudModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addStudModalLabel">Enter Student Details</h5>
+          <h5 class="modal-title" id="addStudModalLabel">Edit Student Details</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -69,8 +69,8 @@
   </div>
 
   <!-- Mock data for table row -->
-  <!-- 
-    <tr> 
+  <!--
+    <tr>
       <td><input type="checkbox" /></td>
       <td> 1</td>
       <td> Mrudul Jain</td>
@@ -82,4 +82,3 @@
       </td>
   </tr>
 -->
-
