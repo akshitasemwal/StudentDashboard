@@ -2,8 +2,8 @@
   "posts": [
     {
       "id": 1,
-      "fullName": "Mrudul Jain",
-      "email": "mrudul.jain@nielseniq.com",
+      "fullName": "Test 0",
+      "email": "test_0@gmail.com",
       "phoneNo": "123456789"
     },
     {
@@ -14,15 +14,15 @@
     },
     {
       "id": 4,
-      "fullName": "Akshita Semwal",
-      "email": "akshitasemwa2002l@gmail.com",
+      "fullName": "Akshita_Semwal",
+      "email": "akshitasemwal2002@gmail.com",
       "phoneNo": 0
     },
     {
       "id": 5,
       "fullName": "Akshita Semwal",
       "email": "akshitasemwal@gmail.com",
-      "phoneNo": "09719585962"
+      "phoneNo": "2345"
     }
   ],
   "comments": [],
