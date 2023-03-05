@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StudentDBComponent } from './student-db/student-db.component';
-import { EditFormComponent } from './edit-form/edit-form.component';
+import { StudentDBComponent } from './StudentDashboard/student-db.component';
+import { EditStudentComponent } from './EditStudent/edit-student.component';
+import { AddStudentComponent } from './AddStudent/add-student.component';
 
 const routes: Routes = [
   {
@@ -14,8 +15,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'edit-form',
-    component: EditFormComponent
+    path: 'edit-student/:id',
+    component: EditStudentComponent
+  },
+  {
+    path: 'add-student',
+    component: AddStudentComponent
   }
 ];
 

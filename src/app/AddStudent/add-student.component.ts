@@ -2,18 +2,17 @@ import { group } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ApiService } from '../shared/api.service';
-import { student } from '../student-db/student-db.student';
+import { student } from '../StudentDashboard/student-db.student';
 import { RouterModule, Routes } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-edit-form',
-  templateUrl: './edit-form.component.html',
-  styleUrls: ['./edit-form.component.css']
+  selector: 'app-add-student',
+  templateUrl: './add-student.component.html',
+  styleUrls: ['./add-student.component.css']
 })
 
-
-export class EditFormComponent implements OnInit {
+export class AddStudentComponent implements OnInit {
   formValue !: FormGroup // what does !: this do?
   studentObj: student = new student();
   studData !: any //Used in get call to store student data from json server
@@ -28,8 +27,6 @@ export class EditFormComponent implements OnInit {
       email : ["",],
       phoneNo : [0],
     })
-
-    //should run when application starts to get all details from json-server
   }
 
   onClickAdd() {

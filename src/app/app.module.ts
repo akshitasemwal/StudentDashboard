@@ -5,14 +5,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StudentDBComponent } from './student-db/student-db.component';
-import { EditFormComponent } from './edit-form/edit-form.component';
+import { StudentDBComponent } from './StudentDashboard/student-db.component';
+import { EditStudentComponent } from './EditStudent/edit-student.component';
+import { AddStudentComponent } from './AddStudent/add-student.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentDBComponent,
-    EditFormComponent
+    EditStudentComponent,
+    AddStudentComponent
   ],
   imports: [
     BrowserModule,

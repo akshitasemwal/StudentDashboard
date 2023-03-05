@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StudentDBComponent } from './student-db/student-db.component';
+import { StudentDBComponent } from './StudentDashboard/student-db.component';
 
 describe('StudentDBComponent', () => {
   let component: StudentDBComponent;

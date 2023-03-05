@@ -2,7 +2,7 @@ import { group } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ApiService } from '../shared/api.service';
-import { student } from '../student-db/student-db.student';
+import { student } from '../StudentDashboard/student-db.student';
 import { RouterModule, Routes } from '@angular/router';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './student-db.component.html',
   styleUrls: ['./student-db.component.css']
 })
+
 export class StudentDBComponent implements OnInit {
 
   formValue !: FormGroup // what does !: this do?
@@ -25,15 +26,14 @@ export class StudentDBComponent implements OnInit {
     this.formValue = this.formbuilder.group({
       fullName : [""],
       email : ["",],
-      phoneNo : [0],
+      phoneNo : [0]
     })
-
     //should run when application starts to get all details from json-server
     this.getStudentDetails();
   }
 
   onClickAdd() {
-    this.router.navigateByUrl('/edit-form');
+    this.router.navigateByUrl('/add-student');
   }
 
   postStudentDetails() {
@@ -50,8 +50,6 @@ export class StudentDBComponent implements OnInit {
     err => {
       alert("Something went wrong");
     })
-
-
     this.getStudentDetails();
   }
 
@@ -62,41 +60,19 @@ export class StudentDBComponent implements OnInit {
   }
 
   deleteStudent(row:any) {
-    this.api.deleteStudent(row.id).subscribe(res => {
-      alert("Student deleted");
-      this.getStudentDetails();
-      //every time a student is deleted, get changed student list from json server
-    },
-    err => {
-      alert("Something went wrong");
-    })
+    if(confirm("Are you sure you want to delete this entry?")){
+      this.api.deleteStudent(row.id).subscribe(res => {
+        this.getStudentDetails();
+        alert("Student deleted");
+        //every time a student is deleted, get changed student list from json server
+      },
+      err => {
+        alert("Something went wrong");
+      })
+    }
   }
 
-  onClickEdit(row:any) {
-    this.formValue.reset();
-    this.showAddBtn = false;
-    this.showUpdBtn = true;
-
-    this.studentObj.id = row.id;
-    this.formValue.controls['fullName'].setValue(row.fullName);
-    this.formValue.controls['email'].setValue(row.email);
-    this.formValue.controls['phoneNo'].setValue(row.phoneNo);
-  }
-
-  updateStudentDetails() {
-    // we will not update the student id. It acts as primary key to access db.json
-    this.studentObj.fullName = this.formValue.value.fullName;
-    this.studentObj.email = this.formValue.value.email;
-    this.studentObj.phoneNo = this.formValue.value.phoneNo;
-
-    this.api.updateStudent(this.studentObj, this.studentObj.id).subscribe(res => {
-      console.log("Student details updated");
-      alert("Student details updated");  // on success res (response) generate alert
-      this.formValue.reset();
-      this.getStudentDetails();
-    },
-    err => {
-      alert("Something went wrong");
-    })
+  onClickEdit(id: number) {
+    this.router.navigate(['/edit-student', id ]);
   }
 }
