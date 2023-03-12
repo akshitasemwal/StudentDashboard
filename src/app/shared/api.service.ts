@@ -9,7 +9,7 @@ export class ApiService {
 
   constructor(private http : HttpClient) { }
 
-  endpoint = "http://localhost:3000/posts"
+  endpoint = "http://localhost:3000/posts";
 
   postStudent(data : any) {
     return this.http.post<any>(this.endpoint, data)

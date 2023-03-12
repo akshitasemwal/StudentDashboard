@@ -16,8 +16,6 @@ export class AddStudentComponent implements OnInit {
   formValue !: FormGroup // what does !: this do?
   studentObj: student = new student();
   studData !: any //Used in get call to store student data from json server
-  showAddBtn !: boolean
-  showUpdBtn !: boolean
 
   constructor(private formbuilder: FormBuilder, private api:ApiService, private router: Router) { }
 

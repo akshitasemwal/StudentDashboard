@@ -20,12 +20,25 @@
     },
     {
       "id": 5,
-      "fullName": "Akshita Semwal",
-      "email": "akshitasemwal@gmail.com",
-      "phoneNo": "2345"
+      "fullName": "Akshita_Semwal",
+      "email": "akshitasemwal2002@gmail.com",
+      "phoneNo": 0
     }
   ],
-  "comments": [],
+  "signupUsers": [
+    {
+      "name": "ab cd",
+      "email": "s@email.com",
+      "password": "aa",
+      "id": 1
+    },
+    {
+      "name": "Akshita Semwal",
+      "email": "a.com",
+      "password": "aa",
+      "id": 2
+    }
+  ],
   "profile": {
     "name": "typicode"
   }

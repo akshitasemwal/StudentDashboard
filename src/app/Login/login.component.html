@@ -1,0 +1,26 @@
+<router-outlet>/<router-outlet>
+
+<div class="form-content">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="addStudModalLabel">Enter your details </h5>
+    </div>
+    <br>
+    <div class="modal-body">
+      <form [formGroup]= "loginForm" (ngSubmit)="login()">
+        <div class="mb-3">
+          <label for="emailForm" class="form-label">Email</label>
+          <input formControlName="email" type="email" formControlName="email" class="form-control" id="emailForm" required>
+        </div>
+        <div class="mb-3">
+          <label for="passwordForm" class="form-label">Password</label>
+          <input formControlName="password" type="password" formControlName="password" class="form-control" id="passwordForm" required>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+    <br>
+    <a class="log" routerLink='/signup'>New user? Click here to sign up!</a>
+  </div>

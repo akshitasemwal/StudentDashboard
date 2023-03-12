@@ -60,7 +60,7 @@ export class StudentDBComponent implements OnInit {
   }
 
   deleteStudent(row:any) {
-    if(confirm("Are you sure you want to delete this entry?")){
+    //if(confirm("Are you sure you want to delete this entry?")){
       this.api.deleteStudent(row.id).subscribe(res => {
         this.getStudentDetails();
         alert("Student deleted");
@@ -69,7 +69,7 @@ export class StudentDBComponent implements OnInit {
       err => {
         alert("Something went wrong");
       })
-    }
+    //}
   }
 
   onClickEdit(id: number) {

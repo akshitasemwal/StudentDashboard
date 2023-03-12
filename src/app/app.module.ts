@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { StudentDBComponent } from './StudentDashboard/student-db.component';
 import { EditStudentComponent } from './EditStudent/edit-student.component';
 import { AddStudentComponent } from './AddStudent/add-student.component';
+import { LoginComponent } from './Login/login.component';
+import { SignupComponent } from './Signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentDBComponent,
     EditStudentComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
