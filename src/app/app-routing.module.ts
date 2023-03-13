@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StudentDBComponent } from './StudentDashboard/student-db.component';
-import { EditStudentComponent } from './EditStudent/edit-student.component';
+import { StudentDashboardComponent } from './StudentDashboard/student-dashboard.component';
+import { EditComponent } from './Student/student.component';
 import { AddStudentComponent } from './AddStudent/add-student.component';
 import { LoginComponent } from './Login/login.component';
 import { SignupComponent } from './Signup/signup.component';
@@ -9,9 +9,9 @@ import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'student-db',
-    canActivate : [AuthGuard],
-    component: StudentDBComponent
+    path: 'student-dashboard',
+    //canActivate : [AuthGuard],
+    component: StudentDashboardComponent
   },
   {
     path: '',
@@ -19,13 +19,13 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'edit-student/:id',
-    canActivate : [AuthGuard],
-    component: EditStudentComponent
+    path: 'student/:id',
+
+    component: EditComponent
   },
   {
     path: 'add-student',
-    canActivate : [AuthGuard],
+    //canActivate : [AuthGuard],
     component: AddStudentComponent
   },
   {

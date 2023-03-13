@@ -5,8 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StudentDBComponent } from './StudentDashboard/student-db.component';
-import { EditStudentComponent } from './EditStudent/edit-student.component';
+import { StudentDashboardComponent } from './StudentDashboard/student-dashboard.component';
+import { EditComponent } from './Student/student.component';
 import { AddStudentComponent } from './AddStudent/add-student.component';
 import { LoginComponent } from './Login/login.component';
 import { SignupComponent } from './Signup/signup.component';
@@ -14,8 +14,8 @@ import { SignupComponent } from './Signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
-    StudentDBComponent,
-    EditStudentComponent,
+    StudentDashboardComponent,
+    EditComponent,
     AddStudentComponent,
     LoginComponent,
     SignupComponent

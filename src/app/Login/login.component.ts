@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,11 @@ import { FormBuilder, FormGroup } from '@angular/forms'
   styleUrls: ['./login.component.css']
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   public loginForm !: FormGroup;
+  private subscription !: Subscription;
 
-  constructor(private formBuilder : FormBuilder, private http : HttpClient, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -24,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   login()
   {
-    this.http.get<any>("http://localhost:3000/signupUsers")
+    this.subscription = this.http.get<any>("http://localhost:3000/signupUsers")
     .subscribe( res=> {
       const user = res.find( (a:any) => {
         return (a.email === this.loginForm.value.email && a.password === this.loginForm.value.password);
@@ -32,7 +34,7 @@ export class LoginComponent implements OnInit {
       if(user){
         alert("Login sucessful!");
         this.loginForm.reset();
-        this.router.navigate(['student-db']);
+        this.router.navigate(['student-dashboard']);
       }
       else
       {
@@ -41,5 +43,13 @@ export class LoginComponent implements OnInit {
       }, err => {
         alert("Something went wrong");
       })
-  }
+    }
+
+    ngOnDestroy()
+    {
+      if (this.subscription) {
+        this.subscription.unsubscribe();
+      }
+    }
+
 }

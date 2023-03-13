@@ -1,10 +1,11 @@
 import { group } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ApiService } from '../shared/api.service';
-import { student } from '../StudentDashboard/student-db.student';
+import { student } from '../StudentDashboard/student-dashboard.student';
 import { RouterModule, Routes } from '@angular/router';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-student',
@@ -12,12 +13,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-student.component.css']
 })
 
-export class AddStudentComponent implements OnInit {
+export class AddStudentComponent implements OnInit, OnDestroy {
   formValue !: FormGroup // what does !: this do?
   studentObj: student = new student();
   studData !: any //Used in get call to store student data from json server
+  private subscription !: Subscription;
 
-  constructor(private formbuilder: FormBuilder, private api:ApiService, private router: Router) { }
+  constructor(private formbuilder: FormBuilder, private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
@@ -36,7 +38,7 @@ export class AddStudentComponent implements OnInit {
     this.studentObj.email = this.formValue.value.email;
     this.studentObj.phoneNo = this.formValue.value.phoneNo;
 
-    this.api.postStudent(this.studentObj).subscribe(res => {
+    this.subscription = this.api.postStudent(this.studentObj).subscribe(res => {
       console.log("Student details added");
       alert("Student details added");  // on success res (response) generate alert
       this.formValue.reset();
@@ -49,6 +51,13 @@ export class AddStudentComponent implements OnInit {
 
   onClickClose()
   {
-    this.router.navigateByUrl('/student-db');
+    this.router.navigateByUrl('/student-dashboard');
+  }
+
+  ngOnDestroy()
+  {
+    if(this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }
