@@ -10,7 +10,7 @@
       <form [formGroup] = "formValue">
         <div class="mb-3">
           <label for="idForm" class="form-label">Student ID</label>
-          <input type="text" formControlName="studentid" class="form-control" id="idForm" [readonly]="disabledValue">
+          <input tabindex="-1" type="text" formControlName="studentid" class="form-control" id="idForm">
         </div>
         <div class="mb-3">
           <label for="inputNameForm" class="form-label">Full Name</label>

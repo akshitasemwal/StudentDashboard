@@ -19,7 +19,7 @@ export class EditComponent implements OnInit, OnDestroy {
   studentObj: student = new student();
   studData: any //Used in get call to store student data from json server
   val: any;
-  disabledValue = false;
+  //disabledValue = true;
   private subscription !: Subscription;
   private sub !: Subscription;
   private subscription1 !: Subscription;
@@ -49,6 +49,9 @@ export class EditComponent implements OnInit, OnDestroy {
       email : [""],
       phoneNo : []
     })
+
+    //this.formValue.get('studentid').disable();
+
 
     //should run when application starts to get all details from json-server
     this.getStudentDetails();
