@@ -10,7 +10,7 @@ import { AuthGuard } from './shared/auth.guard';
 const routes: Routes = [
   {
     path: 'student-dashboard',
-    //canActivate : [AuthGuard],
+    canActivate : [AuthGuard],
     component: StudentDashboardComponent
   },
   {
@@ -20,12 +20,12 @@ const routes: Routes = [
   },
   {
     path: 'student/:id',
-
+    canActivate : [AuthGuard],
     component: EditComponent
   },
   {
     path: 'add-student',
-    //canActivate : [AuthGuard],
+    canActivate : [AuthGuard],
     component: AddStudentComponent
   },
   {

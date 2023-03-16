@@ -16,5 +16,5 @@
 }
 
 #idForm{
-  pointer-events: none;
+  pointer-events: none;  /* disabling the student id html attribute */
 }

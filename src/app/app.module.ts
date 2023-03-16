@@ -10,6 +10,8 @@ import { EditComponent } from './Student/student.component';
 import { AddStudentComponent } from './AddStudent/add-student.component';
 import { LoginComponent } from './Login/login.component';
 import { SignupComponent } from './Signup/signup.component';
+import { AuthService } from './shared/auth.service';
+import { AuthGuard } from './shared/auth.guard';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { SignupComponent } from './Signup/signup.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
