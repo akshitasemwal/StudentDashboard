@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StudentDashboardComponent } from './StudentDashboard/student-dashboard.component';
-import { EditComponent } from './Student/student.component';
+import { StudentComponent } from './Student/student.component';
 import { AddStudentComponent } from './AddStudent/add-student.component';
 import { LoginComponent } from './Login/login.component';
 import { SignupComponent } from './Signup/signup.component';
@@ -17,7 +17,7 @@ import { AuthGuard } from './shared/auth.guard';
   declarations: [
     AppComponent,
     StudentDashboardComponent,
-    EditComponent,
+    StudentComponent,
     AddStudentComponent,
     LoginComponent,
     SignupComponent

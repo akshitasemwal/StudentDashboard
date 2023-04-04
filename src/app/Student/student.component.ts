@@ -1,9 +1,8 @@
-import { group } from '@angular/animations';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ApiService } from '../shared/api.service';
 import { student } from '../StudentDashboard/student-dashboard.student';
-import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -14,7 +13,7 @@ import { Subscription } from 'rxjs';
 })
 
 
-export class EditComponent implements OnInit, OnDestroy {
+export class StudentComponent implements OnInit, OnDestroy {
   formValue !: FormGroup // what does !: this do?
   studentObj: student = new student();
   studData: any //Used in get call to store student data from json server
