@@ -10,15 +10,15 @@
       <form [formGroup]="signupForm" (ngSubmit)="signUp()">
         <div class="mb-3">
           <label for="nameForm" class="form-label">Name</label>
-          <input formControlName="name" type="text" formControlName="name" class="form-control" id="nameForm" required>
+          <input required type="text" formControlName="name" class="form-control" id="nameForm"/>
         </div>
         <div class="mb-3">
           <label for="emailForm" class="form-label">Email</label>
-          <input formControlName="email" type="email" formControlName="email" class="form-control" id="emailForm" required>
+          <input [required]="true" formControlName="email" type="email" class="form-control" id="emailForm"/>
         </div>
         <div class="mb-3">
           <label for="passwordForm" class="form-label">Password</label>
-          <input formControlName="password" type="password" formControlName="password" class="form-control" id="passwordForm" required>
+          <input required formControlName="password" type="password" class="form-control" id="passwordForm"/>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Sign up!</button>
