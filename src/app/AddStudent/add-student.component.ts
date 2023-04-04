@@ -3,7 +3,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ApiService } from '../shared/api.service';
 import { student } from '../StudentDashboard/student-dashboard.student';
-import { RouterModule, Routes } from '@angular/router';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 

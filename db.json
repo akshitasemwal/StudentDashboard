@@ -1,28 +1,16 @@
 {
   "posts": [
     {
-      "id": 1,
-      "fullName": "Test 0",
-      "email": "test_0@gmail.com",
-      "phoneNo": "123456789"
+      "id": 10,
+      "fullName": "test",
+      "email": "email@gmail",
+      "phoneNo": "73849572"
     },
     {
-      "id": 2,
-      "fullName": "Test1",
-      "email": "abc@123.com",
-      "phoneNo": "1234"
-    },
-    {
-      "id": 4,
-      "fullName": "Akshita_Semwal",
-      "email": "akshitasemwal2002@gmail.com",
-      "phoneNo": 0
-    },
-    {
-      "id": 5,
-      "fullName": "Akshita_Sem",
-      "email": "akshitasemwal2002@gmail.com",
-      "phoneNo": 0
+      "id": 11,
+      "fullName": "m j",
+      "email": "buhupoquri@rungel.net",
+      "phoneNo": "09595364890"
     }
   ],
   "signupUsers": [
@@ -37,6 +25,12 @@
       "email": "a.com",
       "password": "aa",
       "id": 2
+    },
+    {
+      "name": "",
+      "email": "xyz.com",
+      "password": "hoiahoo",
+      "id": 3
     }
   ],
   "profile": {

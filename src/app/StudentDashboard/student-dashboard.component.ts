@@ -61,9 +61,9 @@ export class StudentDashboardComponent implements OnInit, OnDestroy {
     })
   }
 
-  deleteStudent(row:any) {
+  deleteStudent(id: number) {
     //if(confirm("Are you sure you want to delete this entry?")){
-      this.subscription1 = this.api.deleteStudent(row.id).subscribe(res => {
+      this.subscription1 = this.api.deleteStudent(id).subscribe(res => {
         this.getStudentDetails();
         alert("Student deleted");
         //every time a student is deleted, get changed student list from json server

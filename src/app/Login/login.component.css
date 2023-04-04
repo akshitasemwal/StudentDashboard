@@ -15,10 +15,10 @@
   transform: translate(-50%, -50%); /* centering the div */
 }
 
-.log{
+.signup-link{
   color: black;
 }
 
-.log:hover{
+.signup-link:hover{
   cursor: pointer;
 }

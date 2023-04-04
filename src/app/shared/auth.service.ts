@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -8,24 +7,24 @@ import { Router } from '@angular/router';
 })
 
 export class AuthService {
-  setLoggedIn = false;
+  loggedIn = false;
 
   constructor(private http: HttpClient, private router: Router) { }
 
   login(email: string, password: string) {
     this.http.get<any>("http://localhost:3000/signupUsers")
     .subscribe( res=> {
-      const user = res.find( (a:any) => {
-        return (a.email === email && a.password === password);
+      const user = res.find( (userEntry:any) => {
+        return (userEntry.email === email && userEntry.password === password);
       });
       if(user){
         alert("Login sucessful!");
-        this.setLoggedIn=true;
+        this.loggedIn = true;
         this.router.navigate(['student-dashboard']);
       }
       else
       {
-        this.setLoggedIn = false;;
+        this.loggedIn = false;;
         alert("User not found");
       }
       }, err => {
@@ -34,6 +33,6 @@ export class AuthService {
 }
 
   isLoggedIn(): boolean {
-    return this.setLoggedIn;
+    return this.loggedIn;
   }
 }

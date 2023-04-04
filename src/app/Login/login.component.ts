@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms'
-import { Subscription } from 'rxjs';
 import { AuthService } from '../shared/auth.service';
 
 @Component({
@@ -14,9 +12,9 @@ import { AuthService } from '../shared/auth.service';
 
 export class LoginComponent implements OnInit {
   public loginForm !: FormGroup;
-  private subscription !: Subscription;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router,
+     private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
