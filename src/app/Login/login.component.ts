@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 
 @Component({
@@ -17,16 +17,45 @@ export class LoginComponent implements OnInit {
      private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      email : [""],
-      password : [""]
+    this.loginForm = new FormGroup({
+      email : new FormControl("",[Validators.required, Validators.email]),
+      password : new FormControl("",[Validators.required])
     })
   }
 
-    login() {
-    const email = this.loginForm.value.email;
-    const password = this.loginForm.value.password;
-    this.authService.login(email, password);
-  }
+  // login() {
+  //   if (this.loginForm.valid) {
+  //     const email = this.loginForm.value.email;
+  //     const password = this.loginForm.value.password;
+  
+  //     this.authService.login(email, password).subscribe(res => {
+  //       if (res.success) {
+  //         console.log(res);
+  //         alert(res.message);
+  //       } else {
+  //         alert(res.message);
+  //       }
+  //     }); // <-- add closing parenthesis here
+  //   }
+  // }
 
-}
+  login() {
+    if (this.loginForm.valid) {
+      const email = this.loginForm.value.email;
+      const password = this.loginForm.value.password;
+    
+      return this.authService.login(email, password).subscribe(res => {
+        if (res.success) {
+          console.log(res);
+          alert(res.message);
+        } else {
+          alert(res.message);
+        }
+      }, err => {
+        // Handle any errors that may occur during the HTTP request.
+        console.error(err);
+      });
+    }
+  } 
+
+  }

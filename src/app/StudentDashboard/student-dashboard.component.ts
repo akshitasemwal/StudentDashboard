@@ -1,9 +1,7 @@
-import { group } from '@angular/animations';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { ApiService } from '../shared/api.service';
 import { student } from '../StudentDashboard/student-dashboard.student';
-import { RouterModule, Routes } from '@angular/router';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -15,7 +13,7 @@ import { Subscription } from 'rxjs';
 
 export class StudentDashboardComponent implements OnInit, OnDestroy {
 
-  formValue !: FormGroup // what does !: this do?
+  public formValue !: FormGroup // what does !: this do?
   studentObj: student = new student();
   studData !: any //Used in get call to store student data from json server
   private subscription !: Subscription;
@@ -25,10 +23,10 @@ export class StudentDashboardComponent implements OnInit, OnDestroy {
   constructor(private formbuilder: FormBuilder, private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
-    this.formValue = this.formbuilder.group({
-      fullName : [""],
-      email : ["",],
-      phoneNo : [0]
+    this.formValue = new FormGroup({
+      fullName : new FormControl("",[Validators.required]),
+      email : new FormControl("",[Validators.required, Validators.email]),
+      phoneNo : new FormControl("",[Validators.required]),
     })
     //should run when application starts to get all details from json-server
     this.getStudentDetails();

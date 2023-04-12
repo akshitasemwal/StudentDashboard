@@ -31,66 +31,6 @@
       "email": "xyz.com",
       "password": "hoiahoo",
       "id": 3
-    },
-    {
-      "name": "",
-      "email": "xyz.com",
-      "password": "hoiahoo",
-      "id": 4
-    },
-    {
-      "name": "",
-      "email": "xyz.com",
-      "password": "hoiahoo",
-      "id": 5
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": 6
-    },
-    {
-      "name": "",
-      "email": "xyz.com",
-      "password": "hoiahoo",
-      "id": 7
-    },
-    {
-      "name": "",
-      "email": "xyz.com",
-      "password": "hoiahoo",
-      "id": 8
-    },
-    {
-      "name": "",
-      "email": "xyz.com",
-      "password": "hoiahoo",
-      "id": 9
-    },
-    {
-      "name": "",
-      "email": "xyz.com",
-      "password": "hoiahoo",
-      "id": 10
-    },
-    {
-      "name": "",
-      "email": "xyz.com",
-      "password": "hoiahoo",
-      "id": 11
-    },
-    {
-      "name": "",
-      "email": "xyz.com",
-      "password": "hoiahoo",
-      "id": 12
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "hoiahoo",
-      "id": 13
     }
   ],
   "profile": {
