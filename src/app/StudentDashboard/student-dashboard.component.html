@@ -27,8 +27,8 @@
           <td>{{row.phoneNo}}</td>
           <td>
             <button type="button" (click)="onClickEdit(row.id)" class="btn btn-info"> Edit </button>
-            <button class="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#delStudModal" > Delete </button>
-            <div class="modal fade" id="delStudModal" tabindex="-1" role="dialog" aria-labelledby="delStudModalLabel" aria-hidden="true">
+            <button class="btn btn-danger mx-2" data-bs-toggle="modal" [attr.data-bs-target]="'#delStudModal-'+row.id" > Delete </button>
+            <div class="modal fade" [attr.id]="'delStudModal-'+row.id" tabindex="-1" role="dialog" aria-labelledby="delStudModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">

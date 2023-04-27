@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { student } from '../StudentDashboard/student-dashboard.student';
 import { Router } from '@angular/router';
