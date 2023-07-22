@@ -2,15 +2,27 @@
   "posts": [
     {
       "id": 10,
-      "fullName": "test",
-      "email": "email@gmail",
-      "phoneNo": "73849572"
+      "fullName": "Ritvik Rawat",
+      "email": "ritvik@gmail.com",
+      "phoneNo": "738495726473"
     },
     {
       "id": 11,
-      "fullName": "m j",
+      "fullName": "Manish Negi",
       "email": "buhupoquri@rungel.net",
-      "phoneNo": "09595364890"
+      "phoneNo": "095953673683"
+    },
+    {
+      "id": 12,
+      "fullName": "Riya Singh",
+      "email": "riyasingh@gmail.com",
+      "phoneNo": "9645829351"
+    },
+    {
+      "id": 13,
+      "fullName": "Saral Rawat",
+      "email": "rawat.saral@yahoo.com",
+      "phoneNo": "92574857352"
     }
   ],
   "signupUsers": [
@@ -31,6 +43,12 @@
       "email": "xyz.com",
       "password": "hoiahoo",
       "id": 3
+    },
+    {
+      "name": "Akshita Semwal",
+      "email": "adsvbii@gmail.com",
+      "password": "hoiahoo",
+      "id": 4
     }
   ],
   "profile": {
